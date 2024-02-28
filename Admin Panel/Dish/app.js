@@ -89,6 +89,7 @@ async function addDish() {
     })
 
     setCategoryData()
+    // setAddText()
 
 }
 
@@ -143,77 +144,19 @@ async function setCategoryData() {
 
 }
 
-//     for (var i in mainData) {
-//         CardDiv = document.createElement("div")
-//         CardDiv.className = "rounded-top card col-sm-6 col-md-4"
-//         CardDiv.setAttribute("style", "width: 18rem;");
-
-//         image = document.createElement("img")
-//         // image.style.border = "1px solid black"
-//         image.src = mainData[i]["DishImage"]
-//         image.className = "rounded-top"
-
-
-
-//         CardBodyDiv = document.createElement("div")
-//         CardBodyDiv.className = "card-body"
-
-//         cardTitle = document.createElement("h5")
-//         cardTitle.className = "card-title"
-//         cardTitle.innerText = mainData[i]["categoryname"]
-
-//         cardText = document.createElement("p")
-//         cardText.innerText = mainData[i]["DishName"]
-
-//         deleteBtn = document.createElement("a")
-//         deleteBtn.className = "btn btn-danger"
-//         // deleteBtn.setAttribute("id", dataValue[i]["cateKey"])
-//         deleteBtn.setAttribute('onclick', "deleteCategory(this)")
-//         deleteBtn.innerText = "Delete"
-
-//         editBtn = document.createElement("a")
-//         editBtn.className = "btn btn-warning"
-//         // editBtn.setAttribute("id", dataValue[i]["cateKey"])
-//         editBtn.setAttribute('onclick', "editCategory(this)")
-//         editBtn.innerText = "Edit"
-
-
-//         CardDiv.appendChild(image)
-
-//         CardBodyDiv.appendChild(cardTitle)
-//         CardBodyDiv.appendChild(cardText)
-//         CardBodyDiv.appendChild(deleteBtn)
-//         CardBodyDiv.appendChild(editBtn)
-
-//         CardDiv.appendChild(CardBodyDiv)
-
-
-//         CategoryItem[0].prepend(CardDiv)
-
-
-//         // console.log(mainData[i])
-// //         table_data.innerHTML += `
-// //         <tr>
-// // <th scope="row">${(Number(i) + 1)}</th>
-// // <td>${mainData[i]["categoryname"]}</td>
-// // <td>${mainData[i]["DishName"]}</td>
-// // <td>${mainData[i]["DishPrice"]}</td>
-
-
-// // <td>
-// // <img src="${mainData[i]["DishImage"]}"  />
-// // </td>
-
-// // </tr>
-// //         `
-
-// //     }
-// //     // console.log(mainData)
-
-// }
 
 
 
 setCategoryData();
 
 getCategories()
+
+
+function setAddText() {
+    dishName.value = ""
+    dishPrice.value = ""
+    dishImage.value = ""
+    // categoriesList.value = ""
+    document.getElementById("ImageView").src = ""
+    getCategories()
+}

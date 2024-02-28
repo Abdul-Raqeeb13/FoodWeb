@@ -5,7 +5,7 @@ let order_btn = document.getElementById("order_btn")
 
 async function displayDish() {
  
-    addTocardDishes.innerHTML = " "
+    addTocardDishes.innerHTML = ""
     if (cardDishes.length >=1) {
         order_btn.style.display = "block"
     } else {

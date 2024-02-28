@@ -1,6 +1,9 @@
 let addToCard = JSON.parse(localStorage.getItem("Add_To_Card"))
 let orderData = document.getElementById("orderData")
 let finalOrderPrice = document.getElementById("finalOrderPrice")
+let UserID = localStorage.getItem("UserID")
+let Username = localStorage.getItem("UserName")
+let orderBtn = document.getElementById("orderBtn")
 let price = 0;
 
 function getAllAddToCart() {
@@ -25,3 +28,33 @@ function getAllAddToCart() {
 }
 
 getAllAddToCart()
+
+
+
+async function SetDataForOrder() {
+
+  var orderKey = firebase.database().ref("UsersOrders").push().key
+
+  let orderObject = {
+    Dishes : addToCard,
+    toal_amount : finalOrderPrice.innerText,
+    status : "pending",
+    userId : UserID,
+    UserName : Username,
+    OrderKey : orderKey
+  }
+
+  // console.log(orderObject);
+
+  // user
+  await firebase.database().ref("UsersOrders").child(UserID).child(orderKey).set(orderObject)
+
+  // admin
+  await firebase.database().ref("AllOrders").child(orderKey).set(orderObject)
+
+  window.location.reload()
+  localStorage.setItem("Add_To_Card" , [])
+
+  orderBtn.setAttribute("orderBtn")
+
+}

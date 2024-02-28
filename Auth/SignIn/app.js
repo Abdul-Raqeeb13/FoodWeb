@@ -16,7 +16,8 @@ async function Login() {
                     if (snapshot.val() != undefined && snapshot.val()["userType"] == "users") {
                         window.location.replace("../../UserPanel/Home/index.html")
                         localStorage.setItem("UserID" , userId)
-                        // console.log("user panel")
+                        localStorage.setItem("UserName" , snapshot.val()["userName"])
+                        // console.log(snapshot.val()["userName"])
                     }
                     else if (snapshot.val() != undefined && snapshot.val()["userType"] == "admin") {
                         // console.log("admin panel")
