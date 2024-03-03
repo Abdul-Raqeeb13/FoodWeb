@@ -58,3 +58,10 @@ async function SetDataForOrder() {
   orderBtn.setAttribute("orderBtn")
 
 }
+
+
+
+function logOut() {
+  localStorage.clear()
+  window.location.replace("../../index.html")
+}

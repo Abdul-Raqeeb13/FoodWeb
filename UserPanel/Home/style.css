@@ -3,6 +3,8 @@
 }
 .navbar ul li a{
     color: white;
+    cursor: pointer;
+
 }
 .navbar .navbar-brand{
     color: white;

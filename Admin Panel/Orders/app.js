@@ -80,3 +80,13 @@ function viewOrderDetails(e) {
   // console.log("tetxh");
 
 }
+
+
+
+
+
+function logOut() {
+  localStorage.clear()
+  window.location.replace("../../index.html")
+}
+

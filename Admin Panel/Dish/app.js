@@ -160,3 +160,11 @@ function setAddText() {
     document.getElementById("ImageView").src = ""
     getCategories()
 }
+
+
+
+function logOut() {
+    localStorage.clear()
+    window.location.replace("../../index.html")
+}
+

@@ -85,3 +85,10 @@ function removeCart(e) {
 
     
 }
+
+
+
+function logOut() {
+    localStorage.clear()
+    window.location.replace("../../index.html")
+}

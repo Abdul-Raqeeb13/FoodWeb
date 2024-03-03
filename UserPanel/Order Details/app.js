@@ -43,3 +43,9 @@ function getOrderDetails() {
 
 
 getOrderDetails()
+
+
+function logOut() {
+  localStorage.clear()
+  window.location.replace("../../index.html")
+}

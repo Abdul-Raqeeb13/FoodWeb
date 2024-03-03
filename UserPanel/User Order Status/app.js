@@ -34,3 +34,8 @@ function ViewOrderDetails(e) {
   localStorage.setItem("CuurentUser_OrderKey" , e.id)
   window.location.href = "../Order Details/index.html"
 } 
+
+function logOut() {
+  localStorage.clear()
+  window.location.replace("../../index.html")
+}

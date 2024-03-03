@@ -1,3 +1,10 @@
+.navbar ul li a{
+    color: white;
+    cursor: pointer;
+}
+.navbar .navbar-brand{
+    color: white;
+}
 .card{
     box-shadow: 4px 6px 9px -2px rgba(116,94,138,0.64);
 }
