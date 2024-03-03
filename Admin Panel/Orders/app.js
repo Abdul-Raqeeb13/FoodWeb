@@ -20,7 +20,7 @@ async function getAllOrders(status) {
               <p class="card-text mt-4"><b>Total Amount </b> : ${data[index]["toal_amount"]}</p>
               <p class="card-text"><b>No Of Dishes </b> : ${data[index]["Dishes"].length}</p>
               <a href="#" class="btn btn-danger" id = ${data[index]["OrderKey"]} onclick = "order_Status_Update(this)">Reject</a>
-              <a href="#" class="btn btn-primary">View Orders</a>
+              <a class="btn btn-primary"  id = ${data[index]["OrderKey"]} onclick = 'viewOrderDetails(this)'>View Orders</a>
               <a href="#" class="btn btn-success" id = ${data[index]["OrderKey"]} onclick = "order_Status_Update(this)">Accept</a>
             </div>
           </div>
@@ -35,7 +35,7 @@ async function getAllOrders(status) {
          <h5 class="card-title" id = ${data[index]["userId"]}>${data[index]["UserName"]}</h5>
          <p class="card-text mt-4"><b>Total Amount </b> : ${data[index]["toal_amount"]}</p>
          <p class="card-text"><b>No Of Dishes </b> : ${data[index]["Dishes"].length}</p>
-         <a href="#" class="btn btn-primary">View Orders</a>
+         <a class="btn btn-primary" id = ${data[index]["OrderKey"]} onclick = 'viewOrderDetails(this)'>View Orders</a>
        </div>
      </div>
      </div>
@@ -64,9 +64,19 @@ async function order_Status_Update(e) {
     "status": orderStatus
   })
 
-  await firebase.database().ref("UsersOrsers").child(userID).child(orderKey).update({
+  await firebase.database().ref("UsersOrders").child(userID).child(orderKey).update({
     "status": orderStatus
   })
 
   getAllOrders("all")
+}
+
+
+
+function viewOrderDetails(e) {
+  // console.log(e.id);
+  localStorage.setItem("current_order_detail_key" , e.id)
+  window.location.href = "../order Details Page/index.html"
+  // console.log("tetxh");
+
 }

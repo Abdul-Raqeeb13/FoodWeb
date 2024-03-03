@@ -53,7 +53,7 @@ async function SetDataForOrder() {
   await firebase.database().ref("AllOrders").child(orderKey).set(orderObject)
 
   window.location.reload()
-  localStorage.setItem("Add_To_Card" , [])
+  localStorage.setItem("Add_To_Card" , null)
 
   orderBtn.setAttribute("orderBtn")
 

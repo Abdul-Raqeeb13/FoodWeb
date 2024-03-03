@@ -48,6 +48,8 @@ displayDish()
 
 function AddtoCard(e) {
     // console.log(data);
+    // console.log(e.id);
+    console.log(JSON.parse(localStorage.getItem("Add_To_Card")));
     var data = JSON.parse(localStorage.getItem("Add_To_Card")) ?? []
     let check = false
     for (let index = 0; index < data.length; index++) {
