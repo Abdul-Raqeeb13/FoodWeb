@@ -16,7 +16,7 @@
     display: block;
     position: sticky;
     top: 0px;
-    
+
 }
 
 .sidebar h1 {
@@ -32,6 +32,7 @@
     text-decoration: none;
     margin: 5px;
 }
+
 .sidebar a:hover {
 
     color: rgb(255, 255, 255);
@@ -42,7 +43,6 @@
 }
 
 .Logo {
-    /* background-color: transparent; */
     transform: rotate(10deg);
     z-index: 1;
 }
@@ -63,41 +63,35 @@
         width: 30px;
     }
 
-    /* .Logo {
-        width: 150px;
-    } */
-
-
-
 }
 
-@media screen and (max-width : 800px){
-    .sidebar{
-     display: none;
+@media screen and (max-width : 800px) {
+    .sidebar {
+        display: none;
     }
- }
- 
+}
+
 tr td img {
-    width: 70px; 
-    object-fit: cover   ;
+    width: 70px;
+    object-fit: cover;
     height: 50px;
-    
+
 }
 
 
-#orderDetails{
+#orderDetails {
     font-size: 22px;
-    
+
 }
 
 
-.card{
+.card {
     box-shadow: 7px 6px 11px -4px rgba(142, 143, 146, 1);
 }
+
 .card img {
-    width: 100%; 
+    width: 100%;
     height: 200px;
     object-fit: cover;
     border-bottom: 1px solid black;
-    /* padding: 12px; */
 }

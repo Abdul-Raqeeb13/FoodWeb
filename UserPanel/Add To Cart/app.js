@@ -37,9 +37,6 @@ async function displayDish() {
 
 
 
-
-
-
 displayDish()
 
 
@@ -78,14 +75,12 @@ function decrementQuantity(e) {
 
 
 function removeCart(e) {
-    // console.log(e.parentNode.parentNode.parentNode.remove());
     cardDishes.splice([e.id],1)
     localStorage.setItem("Add_To_Card" , JSON.stringify(cardDishes))
     displayDish()
 
     
 }
-
 
 
 function logOut() {

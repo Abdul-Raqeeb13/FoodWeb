@@ -4,15 +4,13 @@ async function getAllOrders(status) {
   orders.innerHTML = ""
   await firebase.database().ref("AllOrders").get()
     .then((snap) => {
-      // console.log(Object.values(snap.val()));
       let data = Object.values(snap.val());
-      // console.log(data);
 
       for (let index = 0; index < data.length; index++) {
         if (data[index]["status"] == status || status == "all") {
 
-          data[index]["status"] == "pending" ? 
-          orders.innerHTML += `
+          data[index]["status"] == "pending" ?
+            orders.innerHTML += `
             <div class="col col-lg-4 col-md-6 col-sm-12">
             <div class="card">
             <div class="card-body">
@@ -26,9 +24,9 @@ async function getAllOrders(status) {
           </div>
           </div>
        `
-       
-       :
-       orders.innerHTML += `
+
+            :
+            orders.innerHTML += `
        <div class="col col-lg-4 col-md-6 col-sm-12">
        <div class="card">
        <div class="card-body">
@@ -44,9 +42,6 @@ async function getAllOrders(status) {
 
 
       }
-
-      // getAllOrders("all")
-
     })
 }
 
@@ -57,7 +52,7 @@ getAllOrders("all")
 async function order_Status_Update(e) {
   // console.log(e.parentNode.childNodes[1].id);
   let orderKey = e.id
-  let userID = e.parentNode.childNodes[1].id 
+  let userID = e.parentNode.childNodes[1].id
   let orderStatus = e.innerText.toLowerCase()
 
   await firebase.database().ref("AllOrders").child(orderKey).update({
@@ -74,15 +69,9 @@ async function order_Status_Update(e) {
 
 
 function viewOrderDetails(e) {
-  // console.log(e.id);
-  localStorage.setItem("current_order_detail_key" , e.id)
+  localStorage.setItem("current_order_detail_key", e.id)
   window.location.href = "../order Details Page/index.html"
-  // console.log("tetxh");
-
 }
-
-
-
 
 
 function logOut() {

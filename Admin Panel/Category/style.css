@@ -42,7 +42,6 @@
 }
 
 .Logo {
-    /* background-color: transparent; */
     transform: rotate(10deg);
     z-index: 1;
 }
@@ -62,12 +61,6 @@
     .sidebar a i {
         width: 30px;
     }
-
-    /* .Logo {
-        width: 150px;
-    } */
-
-
 
 }
 
@@ -109,15 +102,7 @@
     height: 2   00px;
     object-fit: cover;
     border-bottom: 1px solid black;
-    /* padding: 12px; */
 }
-
-/* .edit{
-    padding:none;
-    margin-left: 116px;
-    margin-right: 10px;
-} */
-
 
 
 @media screen and (max-width : 800px){

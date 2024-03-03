@@ -15,13 +15,10 @@ async function Login() {
                     console.log(snapshot.val())
                     if (snapshot.val() != undefined && snapshot.val()["userType"] == "users") {
                         window.location.replace("../../UserPanel/Home/index.html")
-                        localStorage.setItem("UserID" , userId)
-                        localStorage.setItem("UserName" , snapshot.val()["userName"])
-                        // console.log(snapshot.val()["userName"])
+                        localStorage.setItem("UserID", userId)
+                        localStorage.setItem("UserName", snapshot.val()["userName"])
                     }
                     else if (snapshot.val() != undefined && snapshot.val()["userType"] == "admin") {
-                        // console.log("admin panel")
-                        // window.location.replace("../../Admin Panel/Dashbaord/index.html")
                         window.location.replace("../../Admin Panel/index.html")
 
                     }

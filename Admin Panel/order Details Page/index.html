@@ -6,12 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
-
-    <!-- main css file -->
-    <!-- <link rel="stylesheet" href="style.css"> -->
+   
     <link rel="stylesheet" type="text/css" media="all" href="style.css">
 
     <!-- fontawesome link -->
@@ -24,13 +19,6 @@
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
 
-    <!-- toastify css links -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.6.1/toastify.css"
-        integrity="sha512-VSD3lcSci0foeRFRHWdYX4FaLvec89irh5+QAGc00j5AOdow2r5MFPhoPEYBUQdyarXwbzyJEO7Iko7+PnPuBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.6.1/toastify.min.css"
-        integrity="sha512-UiKdzM5DL+I+2YFxK+7TDedVyVm7HMp/bN85NeWMJNYortoll+Nd6PU9ZDrZiaOsdarOyk9egQm6LOJZi36L2g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 
@@ -47,50 +35,34 @@
                     style="font-size:24px" aria-hidden="true"></i>Dish</a>
             <a href="../Orders/index.html"><i class="fa fa-cutlery" style="font-size:24px"
                     aria-hidden="true"></i>Orders</a>
-                    <a onclick="logOut()" style="color: white;"><i class="fa fa-cogs" style="font-size:24px"></i>Logout</a>
+            <a onclick="logOut()" style="color: white;"><i class="fa fa-cogs" style="font-size:24px"></i>Logout</a>
 
             <img class="Logo img-fluid" src="../Assets/Foods_Logo-removebg-preview.png" alt="">
 
         </div>
 
+        <div class="container ">
+            <div class="row mt-3 text-center p-4 bg-info" id="orderDetails">
 
-        <!-- <h1 class="text-center">Order Details Page</h1> -->
-        <!-- <div class="viewCategory"> -->
-            <div class="container ">
-                <div class="row mt-3 text-center p-4 bg-info" id="orderDetails">
-                  
 
-                </div>
-
-                <div class="row mt-3" id="ordersDishes">
-                   
-                </div>
             </div>
 
+            <div class="row mt-3" id="ordersDishes">
+
+            </div>
+        </div>
 
 
-        <!-- </div> -->
+
 
     </div>
     </div>
 
 
-
-
-
-
-    <!-- toastify js links -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.6.1/toastify.js"
-        integrity="sha512-MnKz2SbnWiXJ/e0lSfSzjaz9JjJXQNb2iykcZkEY2WOzgJIWVqJBFIIPidlCjak0iTH2bt2u1fHQ4pvKvBYy6Q=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.6.1/toastify.min.js"
-        integrity="sha512-79j1YQOJuI8mLseq9icSQKT6bLlLtWknKwj1OpJZMdPt2pFBry3vQTt+NZuJw7NSd1pHhZlu0s12Ngqfa371EA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
     <!-- firebase necesssay app auth database links -->
     <script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-storage-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-database-compat.js"></script>
 
 

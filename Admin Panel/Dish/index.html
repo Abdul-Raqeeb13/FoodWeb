@@ -6,12 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
-
     <!-- main css file -->
-    <!-- <link rel="stylesheet" href="style.css"> -->
     <link rel="stylesheet" type="text/css" media="all" href="style.css">
 
     <!-- fontawesome link -->
@@ -46,8 +41,8 @@
             <a href="../../Admin Panel/Dish/index.html" class="active"><i class="fa fa-first-order"
                     style="font-size:24px" aria-hidden="true"></i>Dish</a>
             <a href="../Orders/index.html"><i class="fa fa-cutlery" style="font-size:24px"
-                aria-hidden="true"></i>Orders</a>
-                <a onclick="logOut()" style="color: white;"><i class="fa fa-cogs" style="font-size:24px"></i>Logout</a>
+                    aria-hidden="true"></i>Orders</a>
+            <a onclick="logOut()" style="color: white;"><i class="fa fa-cogs" style="font-size:24px"></i>Logout</a>
 
             <img class="Logo img-fluid" src="../Assets/Foods_Logo-removebg-preview.png" alt="">
 
@@ -56,7 +51,8 @@
             <h1>Add Dish</h1>
 
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="setAddText()">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                onclick="setAddText()">
                 Add Dish
             </button>
 
@@ -80,7 +76,8 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" id="addCategoryBtn" onclick="addDish()">Add dish</button>
+                            <button type="button" class="btn btn-primary" id="addCategoryBtn" onclick="addDish()">Add
+                                dish</button>
                         </div>
                     </div>
                 </div>
@@ -93,36 +90,31 @@
 
             <hr>
 
-      <div class="viewCategory">
-        <h1>Dishes</h1>
+            <div class="viewCategory">
+                <h1>Dishes</h1>
 
-        <!-- <div class="container CategoryItem text-start">
-          
-        </div> -->
+                <div class="container-fluid ">
+                    <table class="table table-dark table-striped-columns table-lg">
+                        <thead>
+                            <th>S.No</th>
+                            <th>Category name</th>
+                            <th>Dish name</th>
+                            <th>Dish price</th>
+                            <th>Dish image</th>
+                        </thead>
+                        <tbody id="table_data">
 
+                        </tbody>
 
-        <div class="container-fluid ">
-            <table class="table table-dark table-striped-columns table-lg">
-              <thead>
-                <th>S.No</th>
-                <th>Category name</th>
-                <th>Dish name</th>
-                <th>Dish price</th>
-                <th>Dish image</th>
-              </thead>
-              <tbody id="table_data">
-        
-              </tbody>
-             
-            </table>
-        
-          </div>
+                    </table>
 
-      </div>
+                </div>
+
+            </div>
         </div>
 
 
-        
+
     </div>
 
 

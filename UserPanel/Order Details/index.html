@@ -6,16 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
-
     <!-- main css file -->
-    <!-- <link rel="stylesheet" href="style.css"> -->
     <link rel="stylesheet" type="text/css" media="all" href="style.css">
 
-    <!-- fontawesome link -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- bootstrap link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -24,81 +17,59 @@
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
 
-    <!-- toastify css links -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.6.1/toastify.css"
-        integrity="sha512-VSD3lcSci0foeRFRHWdYX4FaLvec89irh5+QAGc00j5AOdow2r5MFPhoPEYBUQdyarXwbzyJEO7Iko7+PnPuBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.6.1/toastify.min.css"
-        integrity="sha512-UiKdzM5DL+I+2YFxK+7TDedVyVm7HMp/bN85NeWMJNYortoll+Nd6PU9ZDrZiaOsdarOyk9egQm6LOJZi36L2g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 
 <body>
 
-        <nav class="navbar navbar-expand-lg navbar bg-primary" data-bs-theme="dark"">
+    <nav class="navbar navbar-expand-lg navbar bg-primary" data-bs-theme="dark"">
             <div class=" container-fluid">
-            <a class="navbar-brand ms-5" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="../Home/index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../User Order Status/index.html">Orders</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../Add To Cart/index.html">Add to cart</a>
-                    </li>
-                    
-                </ul>
-                <form class="d-flex" role="search">
-                    <a class="btn btn-success" onClick="logOut()">Logout</a>
-                                </form>
-            </div>
-            </div>
-        </nav>
+        <a class="navbar-brand ms-5" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="../Home/index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../User Order Status/index.html">Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../Add To Cart/index.html">Add to cart</a>
+                </li>
 
-            <div class="container ">
-                <div class="row mt-3 text-center p-4" id="orderDetails">
-                  
+            </ul>
+            <form class="d-flex" role="search">
+                <a class="btn btn-success" onClick="logOut()">Logout</a>
+            </form>
+        </div>
+        </div>
+    </nav>
 
-                </div>
-            
-
-                <div class="row mt-3" id="ordersDishes">
-                   
-                </div>
-            </div>
+    <div class="container ">
+        <div class="row mt-3 text-center p-4" id="orderDetails">
 
 
+        </div>
 
-        <!-- </div> -->
+
+        <div class="row mt-3" id="ordersDishes">
+
+        </div>
+    </div>
+
 
     </div>
     </div>
 
 
-
-
-
-
-    <!-- toastify js links -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.6.1/toastify.js"
-        integrity="sha512-MnKz2SbnWiXJ/e0lSfSzjaz9JjJXQNb2iykcZkEY2WOzgJIWVqJBFIIPidlCjak0iTH2bt2u1fHQ4pvKvBYy6Q=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.6.1/toastify.min.js"
-        integrity="sha512-79j1YQOJuI8mLseq9icSQKT6bLlLtWknKwj1OpJZMdPt2pFBry3vQTt+NZuJw7NSd1pHhZlu0s12Ngqfa371EA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 
     <!-- firebase necesssay app auth database links -->
     <script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-storage-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-database-compat.js"></script>
 
 
