@@ -6,24 +6,25 @@ let Username = localStorage.getItem("UserName")
 let orderBtn = document.getElementById("orderBtn")
 let price = 0;
 
+
 function getAllAddToCart() {
-    orderData.innerHTML = " "
-    // console.log(addToCard);
-    for (var index in addToCard) {
-        price += Number(addToCard[index]["Quantity"]*addToCard[index]["DishPrice"])
-        orderData.innerHTML += `
+  orderData.innerHTML = " "
+  // console.log(addToCard);
+  for (var index in addToCard) {
+    price += Number(addToCard[index]["Quantity"] * addToCard[index]["DishPrice"])
+    orderData.innerHTML += `
         <tr>
-        <th>${Number(index)+1}</th>
+        <th>${Number(index) + 1}</th>
         <td>${addToCard[index]["DishName"]}</td>
         <td>${addToCard[index]["Quantity"]}</td>
         <td>${addToCard[index]["DishPrice"]}</td>
-        <td>${addToCard[index]["Quantity"]*addToCard[index]["DishPrice"]}</td>
+        <td>${addToCard[index]["Quantity"] * addToCard[index]["DishPrice"]}</td>
      
       </tr>
         `
-    }
+  }
 
-    finalOrderPrice.innerText = price
+  finalOrderPrice.innerText = price
 
 }
 
@@ -32,30 +33,48 @@ getAllAddToCart()
 
 
 async function SetDataForOrder() {
+  if (addToCard == null) {
+    Toastify({
 
-  var orderKey = firebase.database().ref("UsersOrders").push().key
+      text: "Please select the item",
 
-  let orderObject = {
-    Dishes : addToCard,
-    toal_amount : finalOrderPrice.innerText,
-    status : "pending",
-    userId : UserID,
-    UserName : Username,
-    OrderKey : orderKey
+      duration: 3000
+
+    }).showToast();
+  } else {
+    var orderKey = firebase.database().ref("UsersOrders").push().key
+
+    let orderObject = {
+      Dishes: addToCard,
+      toal_amount: finalOrderPrice.innerText,
+      status: "pending",
+      userId: UserID,
+      UserName: Username,
+      OrderKey: orderKey
+    }
+
+    // console.log(orderObject);
+
+    // user
+    await firebase.database().ref("UsersOrders").child(UserID).child(orderKey).set(orderObject)
+
+    // admin
+    await firebase.database().ref("AllOrders").child(orderKey).set(orderObject)
+
+    window.location.reload()
+    localStorage.setItem("Add_To_Card", null)
+
+    Toastify({
+
+      text: "Order Submit",
+
+      duration: 3000
+
+    }).showToast();
+
   }
 
-  // console.log(orderObject);
 
-  // user
-  await firebase.database().ref("UsersOrders").child(UserID).child(orderKey).set(orderObject)
-
-  // admin
-  await firebase.database().ref("AllOrders").child(orderKey).set(orderObject)
-
-  window.location.reload()
-  localStorage.setItem("Add_To_Card" , null)
-
-  orderBtn.setAttribute("orderBtn")
 
 }
 

@@ -6,10 +6,11 @@ let order_btn = document.getElementById("order_btn")
 async function displayDish() {
  
     addTocardDishes.innerHTML = ""
-    if (cardDishes.length >=1) {
-        order_btn.style.display = "block"
-    } else {
+    console.log(cardDishes);
+    if (cardDishes == null) {
         order_btn.style.display = "none"
+    } else {
+        order_btn.style.display = "block"
     }
     for (const dish in cardDishes) {
         addTocardDishes.innerHTML += `

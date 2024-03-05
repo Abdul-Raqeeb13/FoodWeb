@@ -18,7 +18,8 @@ async function displayDish() {
                 for (const dish in dishes) {
                     // console.log(dishes[dish]["DishName"]);
                     DishesCard.innerHTML += `
-                <div class="card col-lg-3 col-md-4 col-sm-6 col-12">
+                <div class = "col-lg-3 col-md-4 col-sm-6 col-12">
+                <div class="card">
                 <img src="${dishes[dish]["DishImage"]}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">${dishes[dish]["DishName"]}</h5>
@@ -26,6 +27,7 @@ async function displayDish() {
                         <a href="#" class="btn btn-primary" id = ${dish}>Order Now</a>
                         <a href="#" class="btn btn-primary" id = ${dish} onClick = AddtoCard(this)>Add to cart</a>
                     </div>
+                </div>
                 </div>
                     `
 
