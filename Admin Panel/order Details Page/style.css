@@ -79,9 +79,12 @@ tr td img {
 }
 
 
-#orderDetails {
+#orderDetails{
     font-size: 22px;
-
+    background-color: rgba(159, 161, 161, 0.466);
+    border-radius: 10px;
+    /* width: ; */
+    
 }
 
 
