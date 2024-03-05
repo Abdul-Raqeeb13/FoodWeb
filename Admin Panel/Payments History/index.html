@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-   
+    <!-- main css file -->
     <link rel="stylesheet" type="text/css" media="all" href="style.css">
 
     <!-- fontawesome link -->
@@ -19,7 +19,7 @@
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
 
-</head>
+  </head>
 
 
 <body>
@@ -31,7 +31,7 @@
             <a href="../index.html"><i class="fa fa-dashboard " style="font-size:24px"></i>Dashboard</a>
             <a href="../../Admin Panel/Category/index.html"><i class="fa fa-cutlery" style="font-size:24px"
                     aria-hidden="true"></i>Category</a>
-            <a href="../../Admin Panel/Dish/index.html"><i class="fa fa-first-order"
+            <a href="../../Admin Panel/Dish/index.html" class="active"><i class="fa fa-first-order"
                     style="font-size:24px" aria-hidden="true"></i>Dish</a>
             <a href="../Orders/index.html"><i class="fa fa-cutlery" style="font-size:24px"
                     aria-hidden="true"></i>Orders</a>
@@ -41,28 +41,49 @@
 
         </div>
 
-        <div class="container ">
-            <div class="row mt-3 text-center p-4" id="orderDetails">
 
 
-            </div>
 
-            <div class="row mt-3" id="ordersDishes">
+        <div class="container-fluid py-3 ">
+            <h1 class="text-center">Payment History</h1>
+            <div class="row text-center py-3">
+                <div class="container-fluid">
+                <table class="table  table-dark table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">User Name</th>
+                        <th scope="col">Payment</th>
+                        <th scope="col">Orders Status</th>
+                      </tr>
+                    </thead>
+                    <tbody id="table_data">
+                      
+                      
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2" class="text-rend">
+                                <h5>Total Amount</h5>
+                            </td>
+                            <td colspan="2">
+                                <h5 id="amounttext" class="text-start ms-5 ps-5"></h5>
+                            </td>
 
+                        </tr>
+                    </tfoot>
+                  </table>
+                </div>
             </div>
         </div>
 
-
-
-
-    </div>
-    </div>
-
+        </div>
 
 
 
     <!-- firebase necesssay app auth database links -->
     <script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-storage-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.2/firebase-database-compat.js"></script>
 
 
@@ -75,7 +96,7 @@
             projectId: "classauth-752b4",
             storageBucket: "classauth-752b4.appspot.com",
             messagingSenderId: "501613480776",
-            appId: "1:501613480776:web:7bbabb1198ae2ecaf1417d"
+            appId: "1:501613480776:web:7bbabb1198ae2ecaf1417d"       
         };
 
         // initialize
