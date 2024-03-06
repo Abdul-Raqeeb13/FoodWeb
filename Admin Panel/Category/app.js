@@ -167,43 +167,6 @@ function setCategoryData() {
 
     })
 
-    // { CardDiv = document.createElement("div")
-    // CardDiv.className = "card"
-    // CardDiv.setAttribute("style", "width: 18rem;");
-
-    // image = document.createElement("img")
-    // image.src = "https://www.simplilearn.com/ice9/free_resources_article_thumb/what_is_image_Processing.jpg"
-
-
-    // CardBodyDiv = document.createElement("div")
-    // CardBodyDiv.className = "card-body"
-
-    // cardTitle = document.createElement("h5")
-    // cardTitle.className = "card-title"
-    // cardTitle.innerText = CategoryName.value
-
-    // cardText = document.createElement("p")
-    // cardText.innerText = CategoryDescription.value
-
-    // deleteBtn = document.createElement("a")
-    // deleteBtn.className = "btn btn-danger"
-    // deleteBtn.innerText = "Delete"
-
-    // editBtn = document.createElement("a")
-    // editBtn.className = "btn btn-warning"
-    // editBtn.innerText = "Edit"
-
-
-    // CardDiv.appendChild(image)
-
-    // CardBodyDiv.appendChild(cardTitle)
-    // CardBodyDiv.appendChild(cardText)
-    // CardBodyDiv.appendChild(deleteBtn)
-    // CardBodyDiv.appendChild(editBtn)
-
-    // CardDiv.appendChild(CardBodyDiv)
-
-    // CategoryItem[0].appendChild(CardDiv) }
 }
 
 

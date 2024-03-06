@@ -5,7 +5,7 @@ let dishName = document.getElementById("dishName")
 let dishPrice = document.getElementById("dishPrice")
 let dishImage = document.getElementById("dishImage")
 
-let ImageView = document.getElementById("ImageView")
+// let ImageView = document.getElementById("ImageView")
 var imageUrl = ""
 let storageRef = firebase.storage().ref()
 let dbRef = firebase.database().ref("Dishes")
@@ -13,14 +13,31 @@ let dbRef = firebase.database().ref("Dishes")
 let CategoryItem = document.getElementsByClassName("CategoryItem")
 let addCategoryBtn = document.getElementById("addCategoryBtn")
 
+// edit work
+let edit_cat_option = document.getElementById("edit_cat_option")
+let dish_name_edit = document.getElementById("dish_name_edit")
+let dish_price_edit = document.getElementById("dish_price_edit")
+let editImageView = document.getElementById("editImageView")
+let editdishImage = document.getElementById("editdishImage")
+
+
+let dishkey = ""
+let categorykey = ""
+let categoryChange = ""
+let check = false
+
+
+
 // GET THE CATEGORIES IN ADD DISH CATEGORY OPTION
 async function getCategories() {
     categoriesList.innerHTML = ""
+    edit_cat_option.innerHTML = ""
     await firebase.database().ref("Category").get()
         .then((snap) => {
             let data = Object.values(snap.val())
             for (let Category in data) {
                 categoriesList.innerHTML += `<option value="${data[Category]["cateKey"]}">${data[Category]["cateName"]}</option>`
+                edit_cat_option.innerHTML += `<option value="${data[Category]["cateKey"]}">${data[Category]["cateName"]}</option>`
             }
         })
 }
@@ -33,7 +50,6 @@ dishImage.addEventListener("change", function (e) {
 // upload image in firebase storag
 function imageUpload(e) {
 
-    // console.log(e.target.files[0])
     let uploadTask = storageRef.child(`Dishes/${e.target.files[0].name}`).put(e.target.files[0])
 
     uploadTask.on('state_changed',
@@ -49,7 +65,7 @@ function imageUpload(e) {
             uploadTask.snapshot.ref.getDownloadURL().then((url) => {
                 imageUrl = url
                 console.log('File available at', url);
-                ImageView.src = imageUrl
+                // ImageView.src = imageUrl
                 addCategoryBtn.disabled = false
 
 
@@ -62,7 +78,6 @@ function imageUpload(e) {
 
 async function addDish() {
     let dishKey = dbRef.push().getKey()
-    // console.log(dishKey)
     await firebase.database().ref("Category").child(categoriesList.value).get().then(async (snap) => {
         let categoryname = snap.val()["cateName"];
         const dishData = {
@@ -104,12 +119,11 @@ async function setCategoryData() {
 
         if (snapshoot.val() != undefined || snapshoot.val() != null) {
             var dataValues = Object.values(snapshoot.val())
-            // console.log(dataValues);
             for (let i = 0; i < dataValues.length; i++) {
                 var newData = Object.values(dataValues[i])
-                // console.log(newData)                
+                      
                 for (var j in newData) {
-                    // console.log(newData[j])
+    
                     mainData.push(newData[j])
 
                 }
@@ -120,26 +134,29 @@ async function setCategoryData() {
     })
 
 
-    for(var i in mainData){
-        // console.log(mainData[i])
+    for (var i in mainData) {
         table_data.innerHTML += `
         <tr>
-<th scope="row">${(Number(i) + 1)}</th>
-<td>${mainData[i]["categoryname"]}</td>
-<td>${mainData[i]["DishName"]}</td>
-<td>${mainData[i]["DishPrice"]}</td>
+            <th scope="row">${(Number(i) + 1)}</th>
+            <td>${mainData[i]["categoryname"]}</td>
+            <td>${mainData[i]["DishName"]}</td>
+            <td>${mainData[i]["DishPrice"]}</td>
 
 
-<td>
-<img src="${mainData[i]["DishImage"]}">
-</td>
+            <td>
+            <img src="${mainData[i]["DishImage"]}">
+            </td>
 
-</tr>
+            <td>
+                <button class = "btn btn-warning" id = ${mainData[i]["DishKey"]}  value = ${mainData[i]["CateogoryKey"]} onclick = "editDish(this)" data-bs-toggle="modal" data-bs-target="#exampleModal1" >Edit</button>
+                <button class = "btn btn-danger"  id = ${mainData[i]["DishKey"]}  value = ${mainData[i]["CateogoryKey"]} onclick = "editDish(this)">Delete</button>
+            </td>
+
+        </tr>
         `
 
     }
-    
-// console.log(mainData)
+
 
 
 }
@@ -156,12 +173,154 @@ function setAddText() {
     dishName.value = ""
     dishPrice.value = ""
     dishImage.value = ""
-    // categoriesList.value = ""
-    document.getElementById("ImageView").src = ""
     getCategories()
 }
 
 
+async function editDish(e) {
+    dishkey = e.id
+    categorykey = e.value
+    console.log(check);
+    await firebase.database().ref("Dishes").child(categorykey).child(dishkey).get()
+        .then(async (snap) => {
+
+            if (check == true) {
+                for (let index = 0; index < edit_cat_option.length; index++) {
+                    if (snap.val()["categoryname"] == edit_cat_option[index].innerText){
+
+                    
+                        edit_cat_option[index].selected = true
+                    categoryChange = snap.val()["categoryname"]
+                    dish_name_edit.value = snap.val()["DishName"]
+                    dish_price_edit.value = snap.val()["DishPrice"]
+                    editImageView.style.display = "inline"
+                    editImageView.src = snap.val()["DishImage"]
+                    imageUrl = snap.val()["DishImage"]
+                    }
+                }
+            }
+            else {
+
+                await firebase.database().ref("Dishes").child(categorykey).child(dishkey).get()
+                    .then((snap) => {
+
+                        console.log(snap.val());
+                            for (let index = 0; index < edit_cat_option.length; index++) {
+                                if (snap.val()["categoryname"] == edit_cat_option[index].innerText){
+                                edit_cat_option[index].selected = true
+                                categoryChange = snap.val()["categoryname"]
+                                dish_name_edit.value = snap.val()["DishName"]
+                                dish_price_edit.value = snap.val()["DishPrice"]
+                                editImageView.style.display = "inline"
+                                editImageView.src = snap.val()["DishImage"]
+                                imageUrl = snap.val()["DishImage"]
+                                }
+                        }
+                    }
+                    )
+            }
+        })
+}
+
+
+async function updateDish() {
+
+
+    await firebase.database().ref("Category").child(edit_cat_option.value).get().then(async (snap) => {
+        let categoryname = snap.val()["cateName"];
+        if (categoryChange != categoryname) {
+            console.log("categoryChange");
+            const dishEditData = {
+
+
+                CateogoryKey: categorykey,
+                DishImage: imageUrl,
+                DishKey: dishkey,
+                DishName: dish_name_edit.value,
+                DishPrice: dish_price_edit.value,
+                categoryname: categoryname
+            }
+
+            await firebase.database().ref("Dishes").child(categorykey).child(dishkey).remove()
+
+            await firebase.database().ref("Dishes").child(edit_cat_option.value).child(dishkey).set(dishEditData)
+
+            var myModal = bootstrap.Modal.getOrCreateInstance(document.getElementById('exampleModal1'));
+            myModal.hide();
+
+            setCategoryData()
+
+            Toastify({
+
+                text: "Dish updated",
+
+                duration: 3000
+
+            }).showToast();
+
+            check = true
+        }
+        else {
+            console.log("not chnage");
+
+            const dishEditData = {
+
+
+                CateogoryKey: categorykey,
+                DishImage: imageUrl,
+                DishKey: dishkey,
+                DishName: dish_name_edit.value,
+                DishPrice: dish_price_edit.value,
+                categoryname: categoryname
+            }
+
+            // this line make chnage in dishes refrence of firebase if we change the category but it still show in the 
+            await firebase.database().ref("Dishes").child(categorykey).child(dishkey).update(dishEditData)
+
+            var myModal = bootstrap.Modal.getOrCreateInstance(document.getElementById('exampleModal1'));
+            myModal.hide();
+
+            setCategoryData()
+
+            Toastify({
+
+                text: "Dish updated",
+
+                duration: 3000
+
+            }).showToast();
+
+            check = false
+        }
+
+
+
+
+    })
+
+
+
+
+
+
+    // const categoryEditData = {
+
+    //     cateImage: imageUrl,
+    //     cateName: CategoryName.value,
+    //     cateDescription: CategoryDescription.value,
+    //     cateKey: currentEditKey
+    // }
+
+    // await databaseRef.child(currentEditKey).update(categoryEditData)
+
+    // Toastify({
+
+    //     text: "Category updated",
+
+    //     duration: 3000
+
+    // }).showToast();
+}
 
 function logOut() {
     localStorage.clear()
