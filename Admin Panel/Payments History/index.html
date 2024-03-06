@@ -19,7 +19,7 @@
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
 
-  </head>
+</head>
 
 
 <body>
@@ -31,10 +31,12 @@
             <a href="../index.html"><i class="fa fa-dashboard " style="font-size:24px"></i>Dashboard</a>
             <a href="../../Admin Panel/Category/index.html"><i class="fa fa-cutlery" style="font-size:24px"
                     aria-hidden="true"></i>Category</a>
-            <a href="../../Admin Panel/Dish/index.html" class="active"><i class="fa fa-first-order"
+            <a href="../../Admin Panel/Dish/index.html" ><i class="fa fa-first-order"
                     style="font-size:24px" aria-hidden="true"></i>Dish</a>
             <a href="../Orders/index.html"><i class="fa fa-cutlery" style="font-size:24px"
                     aria-hidden="true"></i>Orders</a>
+            <a href="../Payments History/index.html" class="active"><i class="fa fa-cc-visa"></i>Payments History</a>
+
             <a onclick="logOut()" style="color: white;"><i class="fa fa-cogs" style="font-size:24px"></i>Logout</a>
 
             <img class="Logo img-fluid" src="../Assets/Foods_Logo-removebg-preview.png" alt="">
@@ -48,36 +50,36 @@
             <h1 class="text-center">Payment History</h1>
             <div class="row text-center py-3">
                 <div class="container-fluid">
-                <table class="table  table-dark table-striped">
-                    <thead>
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">User Name</th>
-                        <th scope="col">Payment</th>
-                        <th scope="col">Orders Status</th>
-                      </tr>
-                    </thead>
-                    <tbody id="table_data">
-                      
-                      
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="2" class="text-rend">
-                                <h5>Total Amount</h5>
-                            </td>
-                            <td colspan="2">
-                                <h5 id="amounttext" class="text-start ms-5 ps-5"></h5>
-                            </td>
+                    <table class="table  table-dark table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">User Name</th>
+                                <th scope="col">Payment</th>
+                                <th scope="col">Orders Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table_data">
 
-                        </tr>
-                    </tfoot>
-                  </table>
+
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="2" class="text-rend">
+                                    <h5>Total Amount</h5>
+                                </td>
+                                <td colspan="2">
+                                    <h5 id="amounttext" class="text-start ms-5 ps-5"></h5>
+                                </td>
+
+                            </tr>
+                        </tfoot>
+                    </table>
                 </div>
             </div>
         </div>
 
-        </div>
+    </div>
 
 
 
@@ -96,7 +98,7 @@
             projectId: "classauth-752b4",
             storageBucket: "classauth-752b4.appspot.com",
             messagingSenderId: "501613480776",
-            appId: "1:501613480776:web:7bbabb1198ae2ecaf1417d"       
+            appId: "1:501613480776:web:7bbabb1198ae2ecaf1417d"
         };
 
         // initialize

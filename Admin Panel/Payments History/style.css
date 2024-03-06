@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
 }
 
 .parentcontainer {
@@ -43,6 +44,7 @@
 }
 
 .Logo {
+    
     transform: rotate(10deg);
     z-index: 1;
 }
@@ -77,3 +79,4 @@ tr td img {
     height: 50px;
 
 }
+
