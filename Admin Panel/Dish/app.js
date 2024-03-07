@@ -150,8 +150,8 @@ async function setCategoryData() {
             </td>
 
             <td>
-                <button class = "btn btn-warning" id = ${mainData[i]["DishKey"]}  value = ${mainData[i]["CateogoryKey"]} onclick = "editDish(this)" data-bs-toggle="modal" data-bs-target="#exampleModal1" >Edit</button>
-                <button class = "btn btn-danger"  id = ${mainData[i]["DishKey"]}  value = ${mainData[i]["CateogoryKey"]} onclick = "editDish(this)">Delete</button>
+                <button class = "btn btn-warning" id = ${mainData[i]["DishKey"]}  value = ${mainData[i]["CateogoryKey"]} onclick = "editDish(this)" data-bs-toggle="modal" data-bs-target="#exampleModal1">Edit</button>
+                <button class = "btn btn-danger"  id = ${mainData[i]["DishKey"]}  value = ${mainData[i]["CateogoryKey"]} onclick = "deleteDish(this)">Delete</button>
             </td>
 
         </tr>
@@ -290,4 +290,20 @@ async function updateDish() {
 
 
     })
+}
+
+
+async function deleteDish(e) {
+
+    await firebase.database().ref("Dishes").child(e.value).child(e.id).remove()
+
+    setCategoryData()
+    Toastify({
+
+        text: "Dish Deleted",
+
+        duration: 3000
+
+    }).showToast();
+
 }
