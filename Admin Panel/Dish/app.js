@@ -47,6 +47,9 @@ async function getCategories() {
 dishImage.addEventListener("change", function (e) {
     imageUpload(e)
 })
+editdishImage.addEventListener("change", function (e) {
+    imageUpload(e)
+})
 // upload image in firebase storag
 function imageUpload(e) {
 
@@ -65,10 +68,8 @@ function imageUpload(e) {
             uploadTask.snapshot.ref.getDownloadURL().then((url) => {
                 imageUrl = url
                 console.log('File available at', url);
-                // ImageView.src = imageUrl
+                editImageView.src = imageUrl
                 addCategoryBtn.disabled = false
-
-
 
             });
         }
@@ -104,6 +105,7 @@ async function addDish() {
     })
 
     setCategoryData()
+
     // setAddText()
 
 }
@@ -121,9 +123,9 @@ async function setCategoryData() {
             var dataValues = Object.values(snapshoot.val())
             for (let i = 0; i < dataValues.length; i++) {
                 var newData = Object.values(dataValues[i])
-                      
+
                 for (var j in newData) {
-    
+
                     mainData.push(newData[j])
 
                 }
@@ -177,69 +179,63 @@ function setAddText() {
 }
 
 
+
+
+function logOut() {
+    localStorage.clear()
+    window.location.replace("../../index.html")
+}
+
+
+
 async function editDish(e) {
-    dishkey = e.id
-    categorykey = e.value
-    console.log(check);
+    imageUrl = " "
+    dishkey = e.id;      // dish key
+    categorykey = e.value;   // category key 
+
     await firebase.database().ref("Dishes").child(categorykey).child(dishkey).get()
-        .then(async (snap) => {
+        .then((snap) => {
 
-            if (check == true) {
-                for (let index = 0; index < edit_cat_option.length; index++) {
-                    if (snap.val()["categoryname"] == edit_cat_option[index].innerText){
+            for (let index = 0; index < edit_cat_option.length; index++) {
+                if (snap.val()["categoryname"] == edit_cat_option[index].innerText) {
 
-                    
-                        edit_cat_option[index].selected = true
-                    categoryChange = snap.val()["categoryname"]
+                    edit_cat_option[index].selected = true
+                    categoryChange = edit_cat_option[index].innerText
                     dish_name_edit.value = snap.val()["DishName"]
                     dish_price_edit.value = snap.val()["DishPrice"]
                     editImageView.style.display = "inline"
                     editImageView.src = snap.val()["DishImage"]
                     imageUrl = snap.val()["DishImage"]
-                    }
+                    
                 }
             }
-            else {
 
-                await firebase.database().ref("Dishes").child(categorykey).child(dishkey).get()
-                    .then((snap) => {
-
-                        console.log(snap.val());
-                            for (let index = 0; index < edit_cat_option.length; index++) {
-                                if (snap.val()["categoryname"] == edit_cat_option[index].innerText){
-                                edit_cat_option[index].selected = true
-                                categoryChange = snap.val()["categoryname"]
-                                dish_name_edit.value = snap.val()["DishName"]
-                                dish_price_edit.value = snap.val()["DishPrice"]
-                                editImageView.style.display = "inline"
-                                editImageView.src = snap.val()["DishImage"]
-                                imageUrl = snap.val()["DishImage"]
-                                }
-                        }
-                    }
-                    )
-            }
         })
 }
 
 
 async function updateDish() {
+    // console.log(categorykey);
+    // console.log(edit_cat_option.value);
 
 
-    await firebase.database().ref("Category").child(edit_cat_option.value).get().then(async (snap) => {
+    await firebase.database().ref("Category").child(edit_cat_option.value).get()
+    .then(async (snap) => {
         let categoryname = snap.val()["cateName"];
+    
         if (categoryChange != categoryname) {
             console.log("categoryChange");
             const dishEditData = {
 
-
-                CateogoryKey: categorykey,
+                CateogoryKey: edit_cat_option.value,
                 DishImage: imageUrl,
                 DishKey: dishkey,
                 DishName: dish_name_edit.value,
                 DishPrice: dish_price_edit.value,
                 categoryname: categoryname
+
             }
+            console.log(dishEditData);
 
             await firebase.database().ref("Dishes").child(categorykey).child(dishkey).remove()
 
@@ -252,19 +248,16 @@ async function updateDish() {
 
             Toastify({
 
-                text: "Dish updated",
+                text: "Dish updated with category",
 
                 duration: 3000
 
             }).showToast();
-
-            check = true
         }
         else {
-            console.log("not chnage");
-
+            console.log("not change");
+            
             const dishEditData = {
-
 
                 CateogoryKey: categorykey,
                 DishImage: imageUrl,
@@ -272,6 +265,7 @@ async function updateDish() {
                 DishName: dish_name_edit.value,
                 DishPrice: dish_price_edit.value,
                 categoryname: categoryname
+
             }
 
             // this line make chnage in dishes refrence of firebase if we change the category but it still show in the 
@@ -284,46 +278,16 @@ async function updateDish() {
 
             Toastify({
 
-                text: "Dish updated",
+                text: "Dish updated with no category change",
 
                 duration: 3000
 
             }).showToast();
 
-            check = false
+            // check = false
         }
 
 
 
-
     })
-
-
-
-
-
-
-    // const categoryEditData = {
-
-    //     cateImage: imageUrl,
-    //     cateName: CategoryName.value,
-    //     cateDescription: CategoryDescription.value,
-    //     cateKey: currentEditKey
-    // }
-
-    // await databaseRef.child(currentEditKey).update(categoryEditData)
-
-    // Toastify({
-
-    //     text: "Category updated",
-
-    //     duration: 3000
-
-    // }).showToast();
 }
-
-function logOut() {
-    localStorage.clear()
-    window.location.replace("../../index.html")
-}
-
