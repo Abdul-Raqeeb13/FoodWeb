@@ -1,5 +1,6 @@
 body {
-    background-image: url(./Assets/cover.webp);
+    background-image: url(./UserPanel/Assets/photo-1567620905732-2d1ec7ab7445.avif);
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: 50%;
 }
