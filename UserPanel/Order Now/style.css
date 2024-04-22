@@ -9,20 +9,24 @@
 }
 
 
-
-
-
-
-
-
-.navbar-brand img{
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
+body{
+  background-image: url(../../Assets/pngtree-food-western-food-steak-tomato-image_25128.jpg);
+  background-position: 22% 80%;
+  /* background-repeat: no-repeat; */
+  
+  
+}
+.navbar{
+  background-color: #000053;
 }
 
 
 
+.navbar-brand img{
+  width: 40px;
+  height: 30px;
+  border-radius: 50%;
+}
 
 nav a {
     color: #18272F;

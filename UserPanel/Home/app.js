@@ -7,10 +7,10 @@ async function getCategories() {
             let categories = Object.values(snap.val())
             for (const data in categories) {
                 categoriesCard.innerHTML += `
-                <div class = "col-lg-3 col-md-4 col-sm-6 col-12">
-                <div class="card h-100">
-                <img src=${categories[data]["cateImage"]} class = "img-fluid">
-                <div class="card-body">
+                <div class = "col-lg-3 col-md-4 col-sm-6 col-12 mt-2 rounded ">
+                <div class="card h-100 rounded-top text-white">
+                <img src=${categories[data]["cateImage"]} class = "img-fluid rounded-top">
+                <div class="card-body rounded-bottom">
                     <h5 class="card-title">${categories[data]["cateName"]}</h5>
                     <p class="card-text">${categories[data]["cateDescription"]}</p>
                     <a href="#" class="btn btn-primary" id = ${categories[data]["cateKey"]} onClick = viewDish(this)>View Dish</a>

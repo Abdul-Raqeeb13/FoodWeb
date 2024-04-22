@@ -14,9 +14,10 @@ async function displayDish() {
     }
     for (const dish in cardDishes) {
         addTocardDishes.innerHTML += `
-                <div class="card col-lg-3 col-md-4 col-sm-6 col-12">
-                <img src="${cardDishes[dish]["DishImage"]}" class="card-img-top img-fluid" alt="...">
-                    <div class="card-body">
+                <div class = "col-lg-3 col-md-4 col-sm-6 col-12 rounded">
+                <div class="card rounded">
+                <img src="${cardDishes[dish]["DishImage"]}" class="card-img-top rounded-top img-fluid" alt="...">
+                    <div class="card-body rounded-bottom bg-dark">
                         <h5 class="card-title">${cardDishes[dish]["DishName"]}</h5>
                         <button type="button" class="btn btn-primary" onclick = incrementQuantity(this) id = ${dish}>+</button>
                         <p style = 'display:inline'>${cardDishes[dish]["Quantity"]}</p>
@@ -28,6 +29,7 @@ async function displayDish() {
                         </div>
                     </div>
 
+                </div>
                 </div>
                 
                     `

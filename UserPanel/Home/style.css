@@ -1,5 +1,13 @@
 *{
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+
+.navbar{
+    background-color: #000053;
 }
 .navbar ul li a{
     color: white;
@@ -12,10 +20,6 @@
 }
 
 
-.card{
-    box-shadow: 4px 6px 9px -2px rgba(116,94,138,0.64);
-}
-
 .card img {
     width: 100%;
     height: 200px;
@@ -23,11 +27,14 @@
 }
 
 .navbar-brand img{
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 30px;
     border-radius: 50%;
 }
 
+img{
+    width: 100%;
+}
 
 
 
@@ -55,7 +62,19 @@ nav a {
     transform-origin: left;
     transform: scaleX(1);
   }
+
+  .cardCol{
+    background-color: rgba(222, 219, 219, 0.495);
+  }
   
+
+  .card{
+    /* box-shadow: 4px 6px 9px -2px rgba(116,94,138,0.64); */
+    /* box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px; */
+    /* box-shadow: 8px 10px 13px 0px rgba(145,145,145,1); */
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px
+}
+
 
   .card {
     width: 100%;
@@ -66,10 +85,88 @@ nav a {
     transition-timing-function: ease;
 }
 
+.card-body{
+    background-color:#1b1a1a;
+}
+
 .card:hover {
     cursor: pointer;
     border-radius: 10px;
-    border: 0.5px solid rgb(77, 76, 76);
+    border: 0.5px solid rgb(35, 35, 35);
     /* width: 98%; */
     transform: scale(1.04);
+}
+
+.poster {
+    background-image: url("../Assets/food\ cover");
+    width: 100%;
+    height: 90vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top 25% right 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* align-items: flex-end; */
+}
+
+@media screen and (width < 769px) {
+    .poster {
+        width: 100%;
+        height: 70vh;
+        background-position: 55%;
+    }
+}
+
+.posterText h1:nth-child(3) {
+    color: red;
+}
+
+
+.searchInput{
+    width: 40%;
+    padding: 5px;
+    background-color: rgba(223, 221, 221, 0.733);
+    outline: none;
+    border: none;
+    border-radius:5px;
+    color: black;
+}
+
+.cateHeading{
+    background-color: #000053;
+    text-align: center;
+    font-family: cursive;
+    color: white;
+}
+
+
+
+
+/* form styling */
+.form{
+    background-color:#252E42 ;
+    color: white;
+}
+input{
+    width: 80%;
+    height: 6vh;
+    padding-left: 10px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+@media screen and (max-width:576px) {
+    input{
+        width: 60%;
+    }
+}
+
+
+
+/*footer  */
+footer{
+    color: wheat;
+    background-color:#003E7F ;
 }

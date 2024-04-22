@@ -1,3 +1,6 @@
+*{
+  color: white;
+}
 .navbar ul li a{
     color: white;
     cursor: pointer;
@@ -8,16 +11,24 @@
     color: white;
 }
 
-
-
+body{
+  background-image: url(../../Assets/pngtree-food-western-food-steak-tomato-image_25128.jpg);
+  background-position: 22% 80%;
+  background-size: cover;
+  /* background-repeat: no-repeat; */
+  
+  
+}
+.navbar{
+  background-color: #000053;
+}
 
 
 .navbar-brand img{
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
+  width: 40px;
+  height: 30px;
+  border-radius: 50%;
 }
-
 
 
 
@@ -62,4 +73,8 @@ nav a {
     border: 1px solid rgb(77, 76, 76);
     /* width: 98%; */
     transform: scale(1.04);
+}
+.card-body{
+  background-color:#1b1a1a;
+  
 }

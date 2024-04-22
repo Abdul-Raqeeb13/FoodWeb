@@ -9,10 +9,10 @@ async function getAllOrders() {
             console.log(data);
             for (let index = 0; index < data.length; index++) {
                 orderData.innerHTML += `
-                <div class="col col-lg-4 col-md-6 col-sm-12">
-                <div class="card mb-3">
-                <div class="card-body">
-                  <h5 class="card-title"> Order No ${index+1}</h5>
+                <div class="col col-lg-4 col-md-6 col-sm-12 rounded">
+                <div class="card mb-3 rounded">
+                <div class="card-body rounded">
+                  <h5 class="card-title"> Order No : ${index+1}</h5>
                   <p class="card-text mt-4"><b>Total Amount </b> : ${data[index]["toal_amount"]}</p>
                   <p class="card-text"><b>Status </b> : ${data[index]["status"]}</p>
                   <a href="#" class="btn btn-primary" id = "${data[index]["OrderKey"]}" onclick = "ViewOrderDetails(this)">Order Details</a>

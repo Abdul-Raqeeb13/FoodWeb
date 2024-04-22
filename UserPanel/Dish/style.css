@@ -1,34 +1,50 @@
-*{
+* {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
 }
-.navbar ul li a{
+
+
+
+body {
+    background-image: url(../../Assets/pngtree-food-western-food-steak-tomato-image_25128.jpg);
+    background-position: 22% 80%;
+    background-size: cover;
+    /* background-repeat: no-repeat; */
+
+
+}
+
+.navbar {
+    background-color: #000053;
+}
+
+.navbar-brand img {
+    width: 40px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+
+.navbar ul li a {
     color: white;
     cursor: pointer;
     font-size: 18px;
 
 }
-.navbar .navbar-brand{
+
+.navbar .navbar-brand {
     color: white;
 }
-.card{
-    box-shadow: 4px 6px 9px -2px rgba(116,94,138,0.64);
+
+.card {
+    box-shadow: 4px 6px 9px -2px rgba(116, 94, 138, 0.64);
 }
 
 .card img {
     width: 100%;
     height: 200px;
-    object-fit: cover;   
+    object-fit: cover;
 }
-
-
-
-
-.navbar-brand img{
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-}
-
 
 
 
@@ -36,9 +52,9 @@ nav a {
     color: #18272F;
     position: relative;
     text-decoration: none;
-  }
-  
-  nav a::before {
+}
+
+nav a::before {
     content: '';
     position: absolute;
     width: 100%;
@@ -50,21 +66,22 @@ nav a {
     transform-origin: right;
     transform: scaleX(0);
     transition: transform .3s ease-in-out;
-  }
-  
-  nav a:hover::before {
+}
+
+nav a:hover::before {
     transform-origin: left;
     transform: scaleX(1);
-  }
-  
+}
 
-  .card {
+
+.card {
     width: 100%;
     border-radius: 20px;
     height: 80%;
     transition-property: transform;
     transition-duration: 0.7s;
     transition-timing-function: ease;
+    box-shadow: 10px 8px 16px -1px rgba(100,100,100,0.75);
 }
 
 .card:hover {
@@ -73,4 +90,8 @@ nav a {
     border: 1px solid rgb(77, 76, 76);
     /* width: 98%; */
     transform: scale(1.006);
+}
+
+.card-body {
+    background-color: #1b1a1a;
 }
